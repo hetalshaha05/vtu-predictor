@@ -1,0 +1,28 @@
+1a|Define database. Elaborate the component modules of DBMS and their interactions.|10
+1b|Describe the three-schema architecture. Why do we need mappings among schema levels?|6
+1c|Explain the difference between logical and physical data independence.|4
+2a|Draw an ER diagram for a COMPANY database with employee, department, project as strong entities and dependent as weak entity. Specify the constraints, relationships and ratios in the ER diagram.|10
+2b|Define the following terms with example for each using ER notations: Entity, attribute, composite attribute, multivalued attribute, participation role.|10
+3a|Discuss the update operations and dealing with constraint violations with suitable examples.|8
+3b|Illustrate the relational algebra operators with examples for select and project operation.|6
+3c|Discuss the characteristics of relations that make them different from ordinary tables and files.|6
+4a|Perform the following on the given Student and Instructor tables: i) Student union Instructor ii) Student intersect Instructor iii) Student minus Instructor iv) Instructor minus Student.|4
+4b|Consider the relational database schema EMP(Eno, Ename, Salary, Address, Phone, DNo), DEPT(DNo, Dname, DLoc, MgrEno), DEPENDENT(Eno, Dep_Name, Drelation, Dage). Write relational algebra queries for: i) employees who reside in Belagavi ii) employees earning salary between 30000 and 40000 iii) employees who work for the Sales department iv) employees who have at least one daughter v) department names along with names of managers.|10
+4c|Consider two tables T1(P,Q,R) and T2(A,B,C) with given data. Show the results of: i) T1 join T2 on T1.P=T2.A ii) T1 join T2 on T1.Q=T2.B iii) T1 join T2 on T1.P=T2.A and T1.R=T2.C.|6
+5a|Discuss the informal design guidelines for relation schema design.|8
+5b|Define 1NF, 2NF, and 3NF with examples.|6
+5c|Write the syntax for INSERT, UPDATE and DELETE statements in SQL and explain with suitable examples.|6
+6a|Discuss insertion, deletion and modification anomalies. Why are they considered bad? Illustrate with examples.|10
+6b|Illustrate the following with suitable examples: i) Datatypes in SQL ii) Substring Pattern Matching in SQL.|10
+7a|Consider the relations Student(Snum, Sname, Branch, level, age), Class(Cname, meet_at, room, fid), Enrolled(Snum, Cname), Faculty(fid, fname, deptid). Write SQL queries (no duplicates) for: i) names of Juniors enrolled in a class taught by I. Teach ii) names of classes that meet in room R128 or have five or more students enrolled iii) for all levels except JR, the level and average age of students iv) for each faculty who has taught only in room R128, their name and total classes taught v) names of students not enrolled in any class.|10
+7b|What do you understand by correlated Nested Queries in SQL? Explain with a suitable example.|4
+7c|Discuss the ACID properties of a database transaction.|6
+8a|What are views in SQL? Explain with examples.|4
+8b|In SQL, write the usage of GROUP BY and HAVING clauses with suitable examples.|6
+8c|Discuss the types of problems that may be encountered with transactions that run concurrently.|10
+9a|What is the two phase locking protocol? How does it guarantee serializability?|6
+9b|Describe the wait-die and wound-wait protocols for deadlock prevention.|8
+9c|List and explain the four major categories of NOSQL systems.|6
+10a|What is Multiple Granularity locking? How is it implemented using intension locks? Explain.|10
+10b|Discuss the following MongoDB CRUD operations with their formats: i) Insert ii) Delete iii) Read.|6
+10c|Briefly discuss the Neo4j data model.|4

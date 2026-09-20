@@ -1,0 +1,26 @@
+1a|Explain the types of attributes with example.|4
+1b|Define database. Explain the main characteristics of the database approach.|8
+1c|Show the ER diagram for an EMPLOYEE database by assuming your own entities (minimum 4) attributes and relationships, mention cardinality ratios wherever appropriate.|8
+2a|Describe the three schema architecture.|4
+2b|Explain the component models of DBMS and their interaction with the help of diagram.|8
+2c|Design ER diagram for a university database by assuming your own entities (4). Mention primary key, constraints and relationships.|8
+3a|Explain relational model constraints.|6
+3b|Explain the characteristics of relations with suitable example for each.|6
+3c|Considering the following schema: Sailors(sid, sname, rating, age), Boats(bid, bname, color), Reserves(sid, bid, day). Write relational algebra queries for: i) names of sailors who reserved a red and a green boat ii) names of sailors who reserved a red boat iii) names of sailors who reserved a red or green boat iv) names of sailors who reserved all boats.|8
+4a|Explain the steps to convert the basic ER model to relational Database schema.|6
+4b|Explain Unary relational operations with example.|6
+4c|Consider the relation schema Employee database: EMPLOYEE(Fname, Minit, Lname, SSn, Bdates, Address, Sex, Salary, Super_SSn, Dno), DEPARTMENT(Dname, Dnumber, Mgr_SSn, Mgr_start_date), PROJECT(Pname, PNumber, Plocation, Dnum), WORKS_ON(Essn, Pno, Hours), DEPENDENT(Essn, Dependent_name, sex, Bdate, Relationship). Write relational algebra queries for: i) name and address of employees who work for the Research department ii) names of employees with 2 or more dependents iii) names of employees who work on all projects controlled by department 5 iv) names of employees who have no dependents.|8
+5a|What is the need for normalization? Explain second and third normal form with examples.|6
+5b|Outline constraints in SQL.|6
+5c|Identify the given Relation R(ABCDE) and its instance, check whether the given FDs hold or not. Give reasons. i) A to B ii) B to C iii) D to E iv) CD to E.|8
+6a|What is Multivalued dependency? Explain 4NF and 5NF with suitable example.|6
+6b|Outline the informal design guidelines for relational schema.|6
+6c|Consider relation R with function dependency EMPPROJ(SSn, Pnumber, Hours, Ename, Pname, Plocation): SSN,Pnumber to Hours; SSN to Ename; Pnumber to Pname,Plocation. Is it 2NF? Verify. If no give reason.|8
+7a|Consider the following schema for a company database: Employee(FName, LName, SSn, Address, Sex, Salary, Dno, Super_SSn), Department(Dname, Dnumber, mgr_SSn, mgr_st_date), Project(Pname, Pnumber, Plocation, Dnum), WORKS_on(Essn, Pno, Hours), DEPENDENT(Essn, Dependent name, Sex, Bdate, relationship). Write SQL queries for: i) names of managers with at least one dependent (correlated nested) ii) name of each employee with a dependent sharing first name and sex iii) for each project, project number, name, and count of employees working on it iv) SSN of employees working on project 1, 2 or 3 (use 1N) v) sum, max, min, average salary of Research department employees.|10
+7b|Why concurrency control is needed? Demonstrate with an example.|10
+8a|Consider the following schedule (actions listed in scheduled order, prefixed with transaction name). S1: T1:R(X),T2:R(X),T1:W(Y),T2:W(Y),T1:R(Y),T2:R(Y). S2: T3:W(X),T1:R(X),T1:W(Y),T2:R(Z),T2:W(Z),T3:R(Z). For each schedule: i) precedence graph ii) is it conflict serializable, and equivalent serial schedules iii) is it view serializable, and equivalent serial schedules.|10
+8b|Explain triggers with example; write a trigger in SQL to call a procedure Inform_Supervisor whenever an employee's salary is greater than the salary of his or her direct supervisor in the COMPANY database.|10
+9a|Describe the two-phase locking protocol for concurrency control; provide an example to illustrate how it ensures serializability in a transaction schedule.|10
+9b|Explain the characteristics of a NOSQL system.|10
+10a|Explain binary locks and shared lock with algorithm.|10
+10b|Explain MongoDB data model, CRUD operations and distributed system characteristics.|10

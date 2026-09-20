@@ -1,0 +1,668 @@
+[
+  {
+    "paper": "jan2024",
+    "qno": "1",
+    "sub": "",
+    "text": "a|Define database. Elaborate the component modules of DBMS and their interactions.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "1",
+    "sub": "",
+    "text": "b|Describe the three-schema architecture. Why do we need mappings among schema levels?|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "1",
+    "sub": "",
+    "text": "c|Explain the difference between logical and physical data independence.|4"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "2",
+    "sub": "",
+    "text": "a|Draw an ER diagram for a COMPANY database with employee, department, project as strong entities and dependent as weak entity. Specify the constraints, relationships and ratios in the ER diagram.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "2",
+    "sub": "",
+    "text": "b|Define the following terms with example for each using ER notations: Entity, attribute, composite attribute, multivalued attribute, participation role.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "3",
+    "sub": "",
+    "text": "a|Discuss the update operations and dealing with constraint violations with suitable examples.|8"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "3",
+    "sub": "",
+    "text": "b|Illustrate the relational algebra operators with examples for select and project operation.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "3",
+    "sub": "",
+    "text": "c|Discuss the characteristics of relations that make them different from ordinary tables and files.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "4",
+    "sub": "",
+    "text": "a|Perform the following on the given Student and Instructor tables: i) Student union Instructor ii) Student intersect Instructor iii) Student minus Instructor iv) Instructor minus Student.|4"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "4",
+    "sub": "",
+    "text": "b|Consider the relational database schema EMP(Eno, Ename, Salary, Address, Phone, DNo), DEPT(DNo, Dname, DLoc, MgrEno), DEPENDENT(Eno, Dep_Name, Drelation, Dage). Write relational algebra queries for: i) employees who reside in Belagavi ii) employees earning salary between 30000 and 40000 iii) employees who work for the Sales department iv) employees who have at least one daughter v) department names along with names of managers.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "4",
+    "sub": "",
+    "text": "c|Consider two tables T1(P,Q,R) and T2(A,B,C) with given data. Show the results of: i) T1 join T2 on T1.P=T2.A ii) T1 join T2 on T1.Q=T2.B iii) T1 join T2 on T1.P=T2.A and T1.R=T2.C.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "5",
+    "sub": "",
+    "text": "a|Discuss the informal design guidelines for relation schema design.|8"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "5",
+    "sub": "",
+    "text": "b|Define 1NF, 2NF, and 3NF with examples.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "5",
+    "sub": "",
+    "text": "c|Write the syntax for INSERT, UPDATE and DELETE statements in SQL and explain with suitable examples.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "6",
+    "sub": "",
+    "text": "a|Discuss insertion, deletion and modification anomalies. Why are they considered bad? Illustrate with examples.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "6",
+    "sub": "",
+    "text": "b|Illustrate the following with suitable examples: i) Datatypes in SQL ii) Substring Pattern Matching in SQL.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "7",
+    "sub": "",
+    "text": "a|Consider the relations Student(Snum, Sname, Branch, level, age), Class(Cname, meet_at, room, fid), Enrolled(Snum, Cname), Faculty(fid, fname, deptid). Write SQL queries (no duplicates) for: i) names of Juniors enrolled in a class taught by I. Teach ii) names of classes that meet in room R128 or have five or more students enrolled iii) for all levels except JR, the level and average age of students iv) for each faculty who has taught only in room R128, their name and total classes taught v) names of students not enrolled in any class.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "7",
+    "sub": "",
+    "text": "b|What do you understand by correlated Nested Queries in SQL? Explain with a suitable example.|4"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "7",
+    "sub": "",
+    "text": "c|Discuss the ACID properties of a database transaction.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "8",
+    "sub": "",
+    "text": "a|What are views in SQL? Explain with examples.|4"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "8",
+    "sub": "",
+    "text": "b|In SQL, write the usage of GROUP BY and HAVING clauses with suitable examples.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "8",
+    "sub": "",
+    "text": "c|Discuss the types of problems that may be encountered with transactions that run concurrently.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "9",
+    "sub": "",
+    "text": "a|What is the two phase locking protocol? How does it guarantee serializability?|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "9",
+    "sub": "",
+    "text": "b|Describe the wait-die and wound-wait protocols for deadlock prevention.|8"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "9",
+    "sub": "",
+    "text": "c|List and explain the four major categories of NOSQL systems.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "10",
+    "sub": "",
+    "text": "a|What is Multiple Granularity locking? How is it implemented using intension locks? Explain.|10"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "10",
+    "sub": "",
+    "text": "b|Discuss the following MongoDB CRUD operations with their formats: i) Insert ii) Delete iii) Read.|6"
+  },
+  {
+    "paper": "jan2024",
+    "qno": "10",
+    "sub": "",
+    "text": "c|Briefly discuss the Neo4j data model.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "1",
+    "sub": "",
+    "text": "a|Define Database. Explain the characteristics of database.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "1",
+    "sub": "",
+    "text": "b|Discuss three schema architecture with a diagram and explain the importance of mappings between the schema levels.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "1",
+    "sub": "",
+    "text": "c|Discuss the types of end users with suitable examples.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "2",
+    "sub": "",
+    "text": "a|Illustrate the component modules of DBMS and their interaction with a neat diagram.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "2",
+    "sub": "",
+    "text": "b|List and explain different types of attributes with example.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "2",
+    "sub": "",
+    "text": "c|Draw an ER-diagram for keeping track of information about an Employee database, taking into account at least five entities.|10"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "3",
+    "sub": "",
+    "text": "a|Define the following terms: i) Primary key ii) Super key iii) Candidate key iv) Foreign key.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "3",
+    "sub": "",
+    "text": "b|Discuss the various constraints violations during insert, delete and update operations with examples for each.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "3",
+    "sub": "",
+    "text": "c|Explain binary relational algebra operations with suitable examples.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "4",
+    "sub": "",
+    "text": "a|Summarize the E-R to Relational Mapping algorithm with examples for each step.|7"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "4",
+    "sub": "",
+    "text": "b|Discuss the various types of JOIN operation with examples.|5"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "4",
+    "sub": "",
+    "text": "c|Consider the following system: SAILORS(Sid, Sname, rating, age), BOATS(Bid, Bname, Bcolor), RESERVES(Sid, Bid, day). Obtain relational algebra queries for: i) name of sailors who reserved a green boat ii) color of the boat reserved by Naresh iii) name of the sailor who reserved boat no. 1 iv) Sid of sailors over age 20 who have not reserved a boat.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "5",
+    "sub": "",
+    "text": "a|Explain informal design guidelines for relational schema design.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "5",
+    "sub": "",
+    "text": "b|Define Normalization. Explain with examples 1NF, 2NF, 3NF.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "5",
+    "sub": "",
+    "text": "c|Discuss the types of update anomalies in SQL with an example.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "6",
+    "sub": "",
+    "text": "a|Explain with suitable example how constraints are specified in SQL during table creation.|10"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "6",
+    "sub": "",
+    "text": "b|Consider the following schema: Employee(SSN, F_name, M_name, L_name, Address, Salary, D_no), Department(Dname, Dno, MgrSSN, Mgr_S_Date). i) name and address of employees who work for Research Department ii) employees whose address is in Houston, Texas iii) employees in department 5 with salary between 30000 and 40000 iv) update Research department employees' salary by 10 percent v) delete employee with SSN 123456789.|10"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "7",
+    "sub": "",
+    "text": "a|Discuss the importance of concurrency control and give an example for the same.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "7",
+    "sub": "",
+    "text": "b|Explain the states in transaction processing with a neat diagram.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "7",
+    "sub": "",
+    "text": "c|Discuss the ACID properties of a database transaction.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "8",
+    "sub": "",
+    "text": "a|What is the difference between where and having clause? Give an example.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "8",
+    "sub": "",
+    "text": "b|Write a note on the following with an example: i) Assertion ii) Triggers.|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "8",
+    "sub": "",
+    "text": "c|Create a cursor for the employee table and extract values from the table. Declare the variable, open the cursor, extract values, close the cursor for relation Employee(E_id, E_Name, Age, Salary).|10"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "9",
+    "sub": "",
+    "text": "a|Discuss the two phase locking protocol used for concurrency control.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "9",
+    "sub": "",
+    "text": "b|Explain Multiversion concurrency control techniques in detail.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "9",
+    "sub": "",
+    "text": "c|Write a note on intension locking used to achieve granularity.|4"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "10",
+    "sub": "",
+    "text": "a|Explain the characteristics of NOSQL systems.|8"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "10",
+    "sub": "",
+    "text": "b|What are the basic operations of CRUD in MongoDB?|6"
+  },
+  {
+    "paper": "jan2026",
+    "qno": "10",
+    "sub": "",
+    "text": "c|Write a note on Neo4j Interfaces and Distributed System Characteristics.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "1",
+    "sub": "",
+    "text": "a|Define database. Elaborate the component modules of DBMS and their interactions.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "1",
+    "sub": "",
+    "text": "b|Describe the three-schema architecture. Why do we need mappings among schema levels?|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "1",
+    "sub": "",
+    "text": "c|Explain the difference between logical and physical data independence.|4"
+  },
+  {
+    "paper": "june2024",
+    "qno": "2",
+    "sub": "",
+    "text": "a|Draw an ER diagram for a COMPANY database with employee, department, project as strong entities and dependent as weak entity. Specify the constraints, relationships and ratios in the ER diagram.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "2",
+    "sub": "",
+    "text": "b|Define the following terms with example for each using ER notations: Entity, attribute, composite attribute, multivalued attribute, participation role.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "3",
+    "sub": "",
+    "text": "a|Discuss the update operations and dealing with constraint violations with suitable examples.|8"
+  },
+  {
+    "paper": "june2024",
+    "qno": "3",
+    "sub": "",
+    "text": "b|Illustrate the relational algebra operators with examples for select and project operation.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "3",
+    "sub": "",
+    "text": "c|Discuss the characteristics of relations that make them different from ordinary tables and files.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "4",
+    "sub": "",
+    "text": "a|Perform the following on the given Student and Instructor tables: i) Student union Instructor ii) Student intersect Instructor iii) Student minus Instructor iv) Instructor minus Student.|4"
+  },
+  {
+    "paper": "june2024",
+    "qno": "4",
+    "sub": "",
+    "text": "b|Consider the relational database schema EMP(Eno, Ename, Salary, Address, Phone, DNo), DEPT(DNo, Dname, DLoc, MgrEno), DEPENDENT(Eno, Dep_Name, Drelation, Dage). Write relational algebra queries for: i) employees who reside in Belagavi ii) employees earning salary between 30000 and 40000 iii) employees who work for the Sales department iv) employees who have at least one daughter v) department names along with names of managers.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "4",
+    "sub": "",
+    "text": "c|Consider two tables T1(P,Q,R) and T2(A,B,C) with given data. Show the results of: i) T1 join T2 on T1.P=T2.A ii) T1 join T2 on T1.Q=T2.B iii) T1 join T2 on T1.P=T2.A and T1.R=T2.C.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "5",
+    "sub": "",
+    "text": "a|Discuss the informal design guidelines for relation schema design.|8"
+  },
+  {
+    "paper": "june2024",
+    "qno": "5",
+    "sub": "",
+    "text": "b|Define 1NF, 2NF, and 3NF with examples.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "5",
+    "sub": "",
+    "text": "c|Write the syntax for INSERT, UPDATE and DELETE statements in SQL and explain with suitable examples.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "6",
+    "sub": "",
+    "text": "a|Discuss insertion, deletion and modification anomalies. Why are they considered bad? Illustrate with examples.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "6",
+    "sub": "",
+    "text": "b|Illustrate the following with suitable examples: i) Datatypes in SQL ii) Substring Pattern Matching in SQL.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "7",
+    "sub": "",
+    "text": "a|Consider the relations Student(Snum, Sname, Branch, level, age), Class(Cname, meet_at, room, fid), Enrolled(Snum, Cname), Faculty(fid, fname, deptid). Write SQL queries (no duplicates) for: i) names of Juniors enrolled in a class taught by I. Teach ii) names of classes that meet in room R128 or have five or more students enrolled iii) for all levels except JR, the level and average age of students iv) for each faculty who has taught only in room R128, their name and total classes taught v) names of students not enrolled in any class.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "7",
+    "sub": "",
+    "text": "b|What do you understand by correlated Nested Queries in SQL? Explain with a suitable example.|4"
+  },
+  {
+    "paper": "june2024",
+    "qno": "7",
+    "sub": "",
+    "text": "c|Discuss the ACID properties of a database transaction.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "8",
+    "sub": "",
+    "text": "a|What are views in SQL? Explain with examples.|4"
+  },
+  {
+    "paper": "june2024",
+    "qno": "8",
+    "sub": "",
+    "text": "b|In SQL, write the usage of GROUP BY and HAVING clauses with suitable examples.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "8",
+    "sub": "",
+    "text": "c|Discuss the types of problems that may be encountered with transactions that run concurrently.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "9",
+    "sub": "",
+    "text": "a|What is the two phase locking protocol? How does it guarantee serializability?|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "9",
+    "sub": "",
+    "text": "b|Describe the wait-die and wound-wait protocols for deadlock prevention.|8"
+  },
+  {
+    "paper": "june2024",
+    "qno": "9",
+    "sub": "",
+    "text": "c|List and explain the four major categories of NOSQL systems.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "10",
+    "sub": "",
+    "text": "a|What is Multiple Granularity locking? How is it implemented using intension locks? Explain.|10"
+  },
+  {
+    "paper": "june2024",
+    "qno": "10",
+    "sub": "",
+    "text": "b|Discuss the following MongoDB CRUD operations with their formats: i) Insert ii) Delete iii) Read.|6"
+  },
+  {
+    "paper": "june2024",
+    "qno": "10",
+    "sub": "",
+    "text": "c|Briefly discuss the Neo4j data model.|4"
+  },
+  {
+    "paper": "june2025",
+    "qno": "1",
+    "sub": "",
+    "text": "a|Explain the types of attributes with example.|4"
+  },
+  {
+    "paper": "june2025",
+    "qno": "1",
+    "sub": "",
+    "text": "b|Define database. Explain the main characteristics of the database approach.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "1",
+    "sub": "",
+    "text": "c|Show the ER diagram for an EMPLOYEE database by assuming your own entities (minimum 4) attributes and relationships, mention cardinality ratios wherever appropriate.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "2",
+    "sub": "",
+    "text": "a|Describe the three schema architecture.|4"
+  },
+  {
+    "paper": "june2025",
+    "qno": "2",
+    "sub": "",
+    "text": "b|Explain the component models of DBMS and their interaction with the help of diagram.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "2",
+    "sub": "",
+    "text": "c|Design ER diagram for a university database by assuming your own entities (4). Mention primary key, constraints and relationships.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "3",
+    "sub": "",
+    "text": "a|Explain relational model constraints.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "3",
+    "sub": "",
+    "text": "b|Explain the characteristics of relations with suitable example for each.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "3",
+    "sub": "",
+    "text": "c|Considering the following schema: Sailors(sid, sname, rating, age), Boats(bid, bname, color), Reserves(sid, bid, day). Write relational algebra queries for: i) names of sailors who reserved a red and a green boat ii) names of sailors who reserved a red boat iii) names of sailors who reserved a red or green boat iv) names of sailors who reserved all boats.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "4",
+    "sub": "",
+    "text": "a|Explain the steps to convert the basic ER model to relational Database schema.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "4",
+    "sub": "",
+    "text": "b|Explain Unary relational operations with example.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "4",
+    "sub": "",
+    "text": "c|Consider the relation schema Employee database: EMPLOYEE(Fname, Minit, Lname, SSn, Bdates, Address, Sex, Salary, Super_SSn, Dno), DEPARTMENT(Dname, Dnumber, Mgr_SSn, Mgr_start_date), PROJECT(Pname, PNumber, Plocation, Dnum), WORKS_ON(Essn, Pno, Hours), DEPENDENT(Essn, Dependent_name, sex, Bdate, Relationship). Write relational algebra queries for: i) name and address of employees who work for the Research department ii) names of employees with 2 or more dependents iii) names of employees who work on all projects controlled by department 5 iv) names of employees who have no dependents.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "5",
+    "sub": "",
+    "text": "a|What is the need for normalization? Explain second and third normal form with examples.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "5",
+    "sub": "",
+    "text": "b|Outline constraints in SQL.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "5",
+    "sub": "",
+    "text": "c|Identify the given Relation R(ABCDE) and its instance, check whether the given FDs hold or not. Give reasons. i) A to B ii) B to C iii) D to E iv) CD to E.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "6",
+    "sub": "",
+    "text": "a|What is Multivalued dependency? Explain 4NF and 5NF with suitable example.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "6",
+    "sub": "",
+    "text": "b|Outline the informal design guidelines for relational schema.|6"
+  },
+  {
+    "paper": "june2025",
+    "qno": "6",
+    "sub": "",
+    "text": "c|Consider relation R with function dependency EMPPROJ(SSn, Pnumber, Hours, Ename, Pname, Plocation): SSN,Pnumber to Hours; SSN to Ename; Pnumber to Pname,Plocation. Is it 2NF? Verify. If no give reason.|8"
+  },
+  {
+    "paper": "june2025",
+    "qno": "7",
+    "sub": "",
+    "text": "a|Consider the following schema for a company database: Employee(FName, LName, SSn, Address, Sex, Salary, Dno, Super_SSn), Department(Dname, Dnumber, mgr_SSn, mgr_st_date), Project(Pname, Pnumber, Plocation, Dnum), WORKS_on(Essn, Pno, Hours), DEPENDENT(Essn, Dependent name, Sex, Bdate, relationship). Write SQL queries for: i) names of managers with at least one dependent (correlated nested) ii) name of each employee with a dependent sharing first name and sex iii) for each project, project number, name, and count of employees working on it iv) SSN of employees working on project 1, 2 or 3 (use 1N) v) sum, max, min, average salary of Research department employees.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "7",
+    "sub": "",
+    "text": "b|Why concurrency control is needed? Demonstrate with an example.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "8",
+    "sub": "",
+    "text": "a|Consider the following schedule (actions listed in scheduled order, prefixed with transaction name). S1: T1:R(X),T2:R(X),T1:W(Y),T2:W(Y),T1:R(Y),T2:R(Y). S2: T3:W(X),T1:R(X),T1:W(Y),T2:R(Z),T2:W(Z),T3:R(Z). For each schedule: i) precedence graph ii) is it conflict serializable, and equivalent serial schedules iii) is it view serializable, and equivalent serial schedules.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "8",
+    "sub": "",
+    "text": "b|Explain triggers with example; write a trigger in SQL to call a procedure Inform_Supervisor whenever an employee's salary is greater than the salary of his or her direct supervisor in the COMPANY database.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "9",
+    "sub": "",
+    "text": "a|Describe the two-phase locking protocol for concurrency control; provide an example to illustrate how it ensures serializability in a transaction schedule.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "9",
+    "sub": "",
+    "text": "b|Explain the characteristics of a NOSQL system.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "10",
+    "sub": "",
+    "text": "a|Explain binary locks and shared lock with algorithm.|10"
+  },
+  {
+    "paper": "june2025",
+    "qno": "10",
+    "sub": "",
+    "text": "b|Explain MongoDB data model, CRUD operations and distributed system characteristics.|10"
+  }
+]
