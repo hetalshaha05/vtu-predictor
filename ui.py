@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import json
+import os
 import pandas as pd
 
 st.set_page_config(
@@ -16,12 +17,11 @@ st._config.set_option('theme.secondaryBackgroundColor', '#D8F3DC')
 st._config.set_option('theme.textColor', '#1B1B1B')
 st._config.set_option('theme.primaryColor', '#40916C')
 
+# ---------- Session state ----------
 if "page" not in st.session_state:
     st.session_state.page = "welcome"
 if "user" not in st.session_state:
     st.session_state.user = None
-if "subject" not in st.session_state:
-    st.session_state.subject = None
 
 def go(page):
     st.session_state.page = page
@@ -29,6 +29,15 @@ def go(page):
 def render_svg(svg_string, height):
     components.html(svg_string, height=height, scrolling=False)
 
+def load_predictions():
+    """Try multiple paths so it works regardless of folder structure."""
+    for path in ["predictions.json", "predictions/BCS403.json", "predictions/BCS403.json"]:
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f), path
+    return None, None
+
+# ---------- Global CSS ----------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
@@ -69,8 +78,7 @@ div[data-baseweb="popover"] ul li:hover { background: var(--green-mist) !importa
 label { color: var(--green-darkest) !important; font-weight: 600 !important; }
 
 .stButton > button {
-    background: var(--green-dark);
-    color: #FFFFFF !important;
+    background: var(--green-dark); color: #FFFFFF !important;
     border: none; border-radius: 999px;
     padding: 0.75rem 2.2rem;
     font-weight: 600; font-size: 1rem;
@@ -121,9 +129,8 @@ label { color: var(--green-darkest) !important; font-weight: 600 !important; }
 }
 
 .metric-card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 16px; padding: 1.2rem 1.4rem;
-    border: 1px solid var(--green-mist);
+    background: rgba(255,255,255,0.95); border-radius: 16px;
+    padding: 1.2rem 1.4rem; border: 1px solid var(--green-mist);
     box-shadow: 0 2px 10px rgba(45,106,79,0.06);
 }
 .metric-card h4 {
@@ -197,27 +204,31 @@ label { color: var(--green-darkest) !important; font-weight: 600 !important; }
 """, unsafe_allow_html=True)
 
 
+# ==========================================================
+# Enhanced SVG: girl leaning toward laptop + coffee with aroma
+# ==========================================================
 def student_html():
     return """
     <!DOCTYPE html><html><head><style>
       html, body { margin:0; padding:0; background:transparent; overflow:hidden; }
       @keyframes bobBody { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
-      @keyframes bobHead { 0%,100%{transform:translateY(0) rotate(-0.6deg)} 50%{transform:translateY(-3px) rotate(0.6deg)} }
-      @keyframes blink { 0%,90%,100%{transform:scaleY(1)} 94%{transform:scaleY(0.05)} }
+      @keyframes leanIn { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(2deg)} }
+      @keyframes blink { 0%,88%,100%{transform:scaleY(1)} 92%{transform:scaleY(0.05)} }
       @keyframes typeL { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,-3px)} }
       @keyframes typeR { 0%,100%{transform:translate(0,-3px)} 50%{transform:translate(0,0)} }
-      @keyframes screenGlow { 0%,100%{opacity:0.55} 50%{opacity:1} }
-      @keyframes coffeeSteam { 0%,100%{opacity:0.3;transform:translateY(0)} 50%{opacity:0.7;transform:translateY(-3px)} }
+      @keyframes screenGlow { 0%,100%{opacity:0.5} 50%{opacity:1} }
+      @keyframes steamRise { 0%{opacity:0; transform:translateY(0)} 40%{opacity:0.7} 100%{opacity:0; transform:translateY(-25px)} }
       @keyframes sparkle { 0%,100%{opacity:0.4;transform:scale(0.9)} 50%{opacity:1;transform:scale(1.2)} }
       @keyframes stressZig { 0%,100%{opacity:0.35;transform:translateX(0)} 50%{opacity:0.9;transform:translateX(3px)} }
-
       .body     { animation: bobBody 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
-      .head     { animation: bobHead 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+      .head     { animation: leanIn 4.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
       .eye      { animation: blink 4.2s infinite; transform-box: fill-box; transform-origin: center; }
       .hand-l   { animation: typeL 0.55s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
       .hand-r   { animation: typeR 0.55s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-      .screen-gl { animation: screenGlow 2.6s ease-in-out infinite; }
-      .steam    { animation: coffeeSteam 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .screen-gl{ animation: screenGlow 2.6s ease-in-out infinite; }
+      .steam1   { animation: steamRise 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+      .steam2   { animation: steamRise 2.8s ease-out infinite 0.6s; transform-box: fill-box; transform-origin: center bottom; }
+      .steam3   { animation: steamRise 2.2s ease-out infinite 1.2s; transform-box: fill-box; transform-origin: center bottom; }
       .spark    { animation: sparkle 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
       .zig      { animation: stressZig 1.1s ease-in-out infinite; }
     </style></head><body>
@@ -242,7 +253,6 @@ def student_html():
       <g class="spark"><circle cx="55" cy="80" r="5" fill="#52B788"/></g>
       <g class="spark" style="animation-delay:0.8s"><circle cx="330" cy="110" r="4" fill="#40916C"/></g>
       <g class="spark" style="animation-delay:1.6s"><circle cx="320" cy="290" r="5" fill="#52B788"/></g>
-      <g class="spark" style="animation-delay:0.4s"><circle cx="60" cy="300" r="4" fill="#40916C"/></g>
 
       <g class="zig"><path d="M 145 55 l 6 -8 l -6 -8 l 6 -8" stroke="#DDBEA9" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
       <g class="zig" style="animation-delay:0.3s"><path d="M 190 45 l 6 -8 l -6 -8 l 6 -8" stroke="#DDBEA9" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
@@ -264,26 +274,22 @@ def student_html():
         <ellipse cx="310" cy="300" rx="24" ry="6" fill="#F5F1E8" stroke="#DDBEA9" stroke-width="2"/>
         <ellipse cx="310" cy="300" rx="18" ry="4" fill="#8B5E3C" opacity="0.85"/>
         <path d="M 334 305 Q 344 310 334 320" stroke="#DDBEA9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <g class="steam">
-          <path d="M 302 288 Q 298 282 302 276" stroke="#DDBEA9" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-          <path d="M 318 288 Q 322 282 318 276" stroke="#DDBEA9" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        </g>
+        <path class="steam1" d="M 300 292 Q 296 285 300 278 T 300 264" stroke="#DDBEA9" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path class="steam2" d="M 312 292 Q 316 283 312 275 T 312 258" stroke="#DDBEA9" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path class="steam3" d="M 322 292 Q 318 286 322 280 T 322 268" stroke="#DDBEA9" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.55"/>
       </g>
 
       <g transform="translate(115, 235)">
         <rect x="0" y="0" width="150" height="95" rx="7" fill="#1B4332"/>
         <rect x="6" y="6" width="138" height="83" rx="4" fill="url(#screenFill)"/>
         <rect x="6" y="6" width="138" height="83" rx="4" fill="#D8F3DC" class="screen-gl"/>
-
         <rect x="14" y="14" width="50" height="6" rx="2" fill="#2D6A4F"/>
         <rect x="14" y="24" width="90" height="4" rx="2" fill="#95D5B2"/>
-
         <circle cx="38" cy="58" r="18" fill="none" stroke="#D8F3DC" stroke-width="5"/>
         <circle cx="38" cy="58" r="18" fill="none" stroke="#40916C" stroke-width="5"
                 stroke-dasharray="90 120" transform="rotate(-90 38 58)" stroke-linecap="round"/>
-        <text x="38" y="62" text-anchor="middle" font-family="Inter, sans-serif"
+        <text x="38" y="62" text-anchor="middle" font-family="Inter,sans-serif"
               font-weight="800" font-size="9" fill="#1B4332">82%</text>
-
         <rect x="70" y="46" width="6" height="30" rx="1.5" fill="#52B788"/>
         <rect x="80" y="38" width="6" height="38" rx="1.5" fill="#40916C"/>
         <rect x="90" y="52" width="6" height="24" rx="1.5" fill="#95D5B2"/>
@@ -291,7 +297,6 @@ def student_html():
         <rect x="110" y="48" width="6" height="28" rx="1.5" fill="#52B788"/>
         <rect x="120" y="42" width="6" height="34" rx="1.5" fill="#40916C"/>
         <rect x="130" y="56" width="6" height="20" rx="1.5" fill="#95D5B2"/>
-
         <path d="M -8 95 L 158 95 L 166 102 L -16 102 Z" fill="#2D6A4F"/>
         <rect x="-16" y="102" width="182" height="4" rx="2" fill="#1B4332"/>
       </g>
@@ -299,20 +304,13 @@ def student_html():
       <g class="body" transform="translate(190, 0)">
         <path d="M -55 300 Q -60 200 0 190 Q 60 200 55 300 Z" fill="#DDBEA9"/>
         <path d="M -25 200 Q 0 215 25 200" stroke="#C9A78A" stroke-width="3" fill="none" stroke-linecap="round"/>
-
         <path d="M -50 230 Q -80 265 -70 300" stroke="#DDBEA9" stroke-width="18" fill="none" stroke-linecap="round"/>
-        <g class="hand-l" style="transform-box: fill-box; transform-origin: center;">
-          <circle cx="-70" cy="305" r="11" fill="#F5E6D3"/>
-        </g>
-
+        <g class="hand-l"><circle cx="-70" cy="305" r="11" fill="#F5E6D3"/></g>
         <path d="M 50 230 Q 80 265 70 300" stroke="#DDBEA9" stroke-width="18" fill="none" stroke-linecap="round"/>
-        <g class="hand-r" style="transform-box: fill-box; transform-origin: center;">
-          <circle cx="70" cy="305" r="11" fill="#F5E6D3"/>
-        </g>
+        <g class="hand-r"><circle cx="70" cy="305" r="11" fill="#F5E6D3"/></g>
 
-        <g class="head" transform="translate(0, 0)">
+        <g class="head" transform="translate(0, 5) rotate(6 0 140)">
           <circle cx="0" cy="140" r="48" fill="#F5E6D3"/>
-
           <circle cx="-38" cy="118" r="20" fill="#3D2B1F"/>
           <circle cx="-22" cy="100" r="22" fill="#3D2B1F"/>
           <circle cx="0" cy="94" r="24" fill="#3D2B1F"/>
@@ -322,21 +320,16 @@ def student_html():
           <circle cx="42" cy="140" r="16" fill="#3D2B1F"/>
           <circle cx="-30" cy="98" r="14" fill="#3D2B1F"/>
           <circle cx="30" cy="98" r="14" fill="#3D2B1F"/>
-
-          <ellipse class="eye" cx="-16" cy="146" rx="3" ry="4" fill="#1B1B1B"/>
-          <ellipse class="eye" cx="16" cy="146" rx="3" ry="4" fill="#1B1B1B"/>
-
-          <path d="M -24 136 Q -16 132 -8 136" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 8 136 Q 16 132 24 136" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-          <path d="M -10 165 Q 0 174 10 165" stroke="#1B1B1B" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-
-          <circle cx="-28" cy="158" r="6" fill="#DDBEA9" opacity="0.7"/>
-          <circle cx="28" cy="158" r="6" fill="#DDBEA9" opacity="0.7"/>
-
-          <path d="M -46 180 Q 0 200 46 180" stroke="#2D6A4F" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <circle cx="-46" cy="180" r="6" fill="#2D6A4F"/>
-          <circle cx="46" cy="180" r="6" fill="#2D6A4F"/>
+          <ellipse class="eye" cx="-16" cy="152" rx="3" ry="3.5" fill="#1B1B1B"/>
+          <ellipse class="eye" cx="16" cy="152" rx="3" ry="3.5" fill="#1B1B1B"/>
+          <path d="M -24 142 Q -16 139 -8 142" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 8 142 Q 16 139 24 142" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M -10 168 Q 0 176 10 168" stroke="#1B1B1B" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <circle cx="-28" cy="162" r="6" fill="#DDBEA9" opacity="0.7"/>
+          <circle cx="28" cy="162" r="6" fill="#DDBEA9" opacity="0.7"/>
+          <path d="M -46 186 Q 0 205 46 186" stroke="#2D6A4F" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="-46" cy="186" r="6" fill="#2D6A4F"/>
+          <circle cx="46" cy="186" r="6" fill="#2D6A4F"/>
         </g>
       </g>
     </svg>
@@ -344,156 +337,9 @@ def student_html():
     """
 
 
-def render_welcome():
-    left, right = st.columns([1.4, 1], gap="large")
-    with left:
-        st.markdown('<br>', unsafe_allow_html=True)
-        st.markdown('<h1 class="main-title">Welcome to <span class="title-accent">VTU Predictor</span></h1>', unsafe_allow_html=True)
-        st.markdown('<p class="subtitle">Study smart, not scared. We analyse your previous year papers and show you exactly which questions keep coming back — so you walk into the exam knowing what matters most.</p>', unsafe_allow_html=True)
-        st.markdown("""
-        <div class="hero-quote">
-            "The excellent student isn't the one who studies the most —<br>it's the one who studies what matters."
-            <span class="hero-quote-author">— Study the patterns, not the panic</span>
-        </div>
-        """, unsafe_allow_html=True)
-        st.button("Get Started →", on_click=go, args=("login",), key="welcome_cta", use_container_width=True)
-        st.markdown('<div class="or-divider">— or —</div>', unsafe_allow_html=True)
-        if st.button("Explore as guest →", key="welcome_skip", type="secondary", use_container_width=True):
-            st.session_state.user = {"name": "Guest", "email": "", "usn": "", "branch": "—", "semester": "—", "year": "—"}
-            st.session_state.page = "subject"
-            st.rerun()
-    with right:
-        st.markdown('<br>', unsafe_allow_html=True)
-        render_svg(student_html(), height=420)
-        st.markdown("""
-        <div class="info-card" style="margin-top:0.5rem;">
-            <h4>📚 Built for VTU students</h4>
-            <p>Every subject. Every previous paper. Ranked by how often each question repeats.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-def render_login():
-    left, right = st.columns([1, 1], gap="large")
-    with left:
-        st.markdown('<br><br>', unsafe_allow_html=True)
-        st.markdown('<h1 class="main-title">Hey, <span class="title-accent">scholar.</span></h1>', unsafe_allow_html=True)
-        st.markdown('<p class="subtitle">Tell us a bit about yourself — we\'ll personalise your dashboard.</p>', unsafe_allow_html=True)
-        st.markdown('<br>', unsafe_allow_html=True)
-        render_svg(student_html(), height=420)
-        st.markdown("""
-        <div class="info-card" style="margin-top:0.5rem;">
-            <h4>💡 Why sign in?</h4>
-            <p>We remember your branch and semester so next time you land straight on your subject. Guests can still explore everything.</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with right:
-        st.markdown('<br>', unsafe_allow_html=True)
-        st.markdown('<h2>Create your profile</h2>', unsafe_allow_html=True)
-        st.markdown("##### 👤 Basic details")
-        name = st.text_input("Full name", placeholder="e.g. Aditi Sharma", key="in_name")
-        email = st.text_input("College email", placeholder="you@college.edu", key="in_email")
-        usn = st.text_input("USN", placeholder="1VT21CS001", key="in_usn")
-        st.markdown("##### 🎓 Academic details")
-        colA, colB = st.columns(2)
-        with colA:
-            branch = st.selectbox("Branch", ["CSE", "ISE", "ECE", "EEE", "Mechanical", "Civil", "AI & ML", "Data Science", "Other"], index=0, key="in_branch")
-        with colB:
-            semester = st.selectbox("Semester", [f"Sem {i}" for i in range(1, 9)], index=3, key="in_sem")
-        year = st.selectbox("Academic year", ["1st Year", "2nd Year", "3rd Year", "4th Year"], index=2, key="in_year")
-        st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("Continue →", key="login_submit", use_container_width=True):
-            if name.strip() and usn.strip():
-                st.session_state.user = {"name": name.strip(), "email": email.strip(), "usn": usn.strip(), "branch": branch, "semester": semester, "year": year}
-                st.session_state.page = "subject"
-                st.rerun()
-            else:
-                st.warning("Please enter at least your name and USN.")
-        st.markdown('<div class="or-divider">— or —</div>', unsafe_allow_html=True)
-        if st.button("Continue as guest →", key="login_skip", type="secondary", use_container_width=True):
-            st.session_state.user = {"name": "Guest", "email": "", "usn": "", "branch": "—", "semester": "—", "year": "—"}
-            st.session_state.page = "subject"
-            st.rerun()
-
-
-def render_subject():
-    st.markdown('<br>', unsafe_allow_html=True)
-    name = st.session_state.user["name"] if st.session_state.user else "there"
-    st.markdown(f'<h1 class="main-title">Hi {name.split()[0]}, <span class="title-accent">what are we studying?</span></h1>', unsafe_allow_html=True)
-    st.markdown('<p class="subtitle">Pick a paper. We\'ll pull in every previous year question we have on it and rank them by how often they repeat.</p>', unsafe_allow_html=True)
-    st.markdown('<br>', unsafe_allow_html=True)
-
-    col1, col2 = st.columns([1.3, 1], gap="large")
-    with col1:
-        st.markdown('<h2>Choose paper</h2>', unsafe_allow_html=True)
-        subject = st.selectbox("Subject code",
-    ["BCS403 — Database Management Systems"], index=0, key="subject_pick"), 
-        st.caption("More subjects coming soon — we're adding papers every week.")
-        st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("Analyse papers →", key="subject_submit", use_container_width=True):
-            st.session_state.subject = subject.split(" — ")[0]
-            st.session_state.page = "predictor"
-            st.rerun()
-        st.markdown("<br><br>", unsafe_allow_html=True)
-        st.markdown('<h3 style="margin-bottom:1rem;">What you\'ll see next</h3>', unsafe_allow_html=True)
-        i1, i2 = st.columns(2)
-        with i1:
-            st.markdown("""
-            <div class="info-card">
-                <div class="info-step">1</div>
-                <h4>Repetition ranking</h4>
-                <p>Every question gets a repeat score. Study the top ones first.</p>
-            </div>
-            """, unsafe_allow_html=True)
-        with i2:
-            st.markdown("""
-            <div class="info-card">
-                <div class="info-step">2</div>
-                <h4>Year-wise trends</h4>
-                <p>See exactly which years each question appeared in.</p>
-            </div>
-            """, unsafe_allow_html=True)
-    with col2:
-        st.markdown('<br>', unsafe_allow_html=True)
-        render_svg(student_html(), height=420)
-        st.markdown("""
-        <div class="hero-quote" style="font-size:1rem; padding:1.2rem 1.4rem; margin-top:0.5rem;">
-            "Don't read everything. Read what's likely."
-            <span class="hero-quote-author">— Every topper, ever</span>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.markdown('<h2 style="text-align:center;">How it works</h2>', unsafe_allow_html=True)
-    st.markdown('<p class="subtitle" style="text-align:center;">Three steps. No fluff.</p>', unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    s1, s2, s3 = st.columns(3, gap="large")
-    with s1:
-        st.markdown("""
-        <div class="info-card">
-            <div class="info-step">1</div>
-            <h4>We read the papers</h4>
-            <p>You upload the 4 previous year papers as text. We parse every question, marks, and unit.</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with s2:
-        st.markdown("""
-        <div class="info-card">
-            <div class="info-step">2</div>
-            <h4>We find the patterns</h4>
-            <p>Similar questions across years get grouped using text similarity, and each gets a repetition score.</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with s3:
-        st.markdown("""
-        <div class="info-card">
-            <div class="info-step">3</div>
-            <h4>You study smart</h4>
-            <p>Sort by likelihood, filter by unit, and walk into the exam knowing what's most probable.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-
+# ==========================================================
+# Question table (single-line HTML string)
+# ==========================================================
 def render_question_table(df_subset):
     if df_subset.empty:
         st.info("No questions in this category yet.")
@@ -533,7 +379,6 @@ def render_question_table(df_subset):
             f'<td class="center"><span class="papers-mini">{papers_html}</span></td>'
             f'</tr>'
         )
-
     rows_joined = "".join(rows_parts)
 
     table_html = (
@@ -543,11 +388,11 @@ def render_question_table(df_subset):
         'table.vtu-table thead{background:linear-gradient(180deg,#2D6A4F 0%,#1B4332 100%);}'
         'table.vtu-table th{color:#FFFFFF !important;padding:0.95rem 0.9rem;text-align:left;font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;}'
         'table.vtu-table th.center{text-align:center;}'
-        'table.vtu-table tbody tr{border-bottom:1px solid #EDE7D9;transition:background 0.15s ease;}'
+        'table.vtu-table tbody tr{border-bottom:1px solid #EDE7D9;}'
         'table.vtu-table tbody tr:nth-child(even){background:#FBF9F4;}'
         'table.vtu-table tbody tr:hover{background:#D8F3DC;}'
         'table.vtu-table tbody tr:last-child{border-bottom:none;}'
-        'table.vtu-table td{padding:0.9rem 0.9rem;color:#1B1B1B;vertical-align:middle;line-height:1.45;}'
+        'table.vtu-table td{padding:0.9rem;color:#1B1B1B;vertical-align:middle;line-height:1.45;}'
         'table.vtu-table td.rank{font-family:Georgia,serif;font-weight:800;font-size:1.02rem;color:#1B4332;text-align:center;width:44px;}'
         'table.vtu-table td.q-text{max-width:520px;}'
         'table.vtu-table td.q-text strong{font-weight:500;color:#1B1B1B;}'
@@ -563,22 +408,13 @@ def render_question_table(df_subset):
         '.papers-mini{font-size:0.76rem;color:#4A4A4A;white-space:nowrap;}'
         '.papers-mini code{background:#D8F3DC;color:#1B4332;padding:0.1rem 0.35rem;border-radius:4px;font-size:0.7rem;margin-right:0.15rem;font-family:Courier New,monospace;}'
         '</style>'
-        '<div class="vtu-table-wrap">'
-        '<table class="vtu-table">'
-        '<thead><tr>'
-        '<th class="center">#</th>'
-        '<th>Question</th>'
-        '<th class="center">Repeat</th>'
-        '<th class="center">Marks</th>'
-        '<th class="center">Confidence</th>'
-        '<th class="center">Score</th>'
-        '<th class="center">Papers</th>'
+        '<div class="vtu-table-wrap"><table class="vtu-table"><thead><tr>'
+        '<th class="center">#</th><th>Question</th><th class="center">Repeat</th>'
+        '<th class="center">Marks</th><th class="center">Confidence</th>'
+        '<th class="center">Score</th><th class="center">Papers</th>'
         '</tr></thead>'
-        f'<tbody>{rows_joined}</tbody>'
-        '</table>'
-        '</div>'
+        f'<tbody>{rows_joined}</tbody></table></div>'
     )
-
     st.markdown(table_html, unsafe_allow_html=True)
 
 
@@ -586,13 +422,146 @@ def render_category_header(icon, title, subtitle, count):
     st.markdown(f"""
     <div class="cat-header">
         <span class="icon">{icon}</span>
-        <div>
-            <h3>{title}</h3>
-            <p>{subtitle}</p>
-        </div>
+        <div><h3>{title}</h3><p>{subtitle}</p></div>
         <span class="count">{count} questions</span>
     </div>
     """, unsafe_allow_html=True)
+
+
+# ==========================================================
+# Pages
+# ==========================================================
+def render_welcome():
+    left, right = st.columns([1.4, 1], gap="large")
+    with left:
+        st.markdown('<br>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-title">Welcome to <span class="title-accent">VTU Predictor</span></h1>', unsafe_allow_html=True)
+        st.markdown('<p class="subtitle">Study smart, not scared. We analyse your previous year papers and show you exactly which questions keep coming back — so you walk into the exam knowing what matters most.</p>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="hero-quote">
+            "The excellent student isn't the one who studies the most —<br>it's the one who studies what matters."
+            <span class="hero-quote-author">— Study the patterns, not the panic</span>
+        </div>
+        """, unsafe_allow_html=True)
+        st.button("Get Started →", on_click=go, args=("login",), key="welcome_cta", use_container_width=True)
+        st.markdown('<div class="or-divider">— or —</div>', unsafe_allow_html=True)
+        if st.button("Explore as guest →", key="welcome_skip", type="secondary", use_container_width=True):
+            st.session_state.user = {"name": "Guest", "email": "", "usn": "", "branch": "CSE", "semester": "Sem 4", "year": "3rd Year"}
+            st.session_state.page = "subject"
+            st.rerun()
+    with right:
+        st.markdown('<br>', unsafe_allow_html=True)
+        render_svg(student_html(), height=420)
+        st.markdown("""
+        <div class="info-card" style="margin-top:0.5rem;">
+            <h4>📚 Built for VTU students</h4>
+            <p>Every subject. Every previous paper. Ranked by how often each question repeats.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_login():
+    left, right = st.columns([1, 1], gap="large")
+    with left:
+        st.markdown('<br><br>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-title">Hey, <span class="title-accent">scholar.</span></h1>', unsafe_allow_html=True)
+        st.markdown('<p class="subtitle">Tell us a bit about yourself — we\'ll personalise your dashboard.</p>', unsafe_allow_html=True)
+        st.markdown('<br>', unsafe_allow_html=True)
+        render_svg(student_html(), height=420)
+        st.markdown("""
+        <div class="info-card" style="margin-top:0.5rem;">
+            <h4>💡 Why sign in?</h4>
+            <p>We remember your branch and semester so next time you land straight on your subject. Guests can still explore everything.</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with right:
+        st.markdown('<br>', unsafe_allow_html=True)
+        st.markdown('<h2>Create your profile</h2>', unsafe_allow_html=True)
+        st.markdown("##### 👤 Basic details")
+        name = st.text_input("Full name", placeholder="e.g. Aditi Sharma", key="in_name")
+        email = st.text_input("College email", placeholder="you@college.edu", key="in_email")
+        usn = st.text_input("USN", placeholder="1VT21CS001", key="in_usn")
+        st.markdown("##### 🎓 Academic details")
+        colA, colB = st.columns(2)
+        with colA:
+            branch = st.selectbox("Branch",
+                ["CSE", "ISE", "ECE", "EEE", "Mechanical", "Civil", "AI & ML", "Data Science", "Other"],
+                index=0, key="in_branch")
+        with colB:
+            semester = st.selectbox("Semester", [f"Sem {i}" for i in range(1, 9)], index=3, key="in_sem")
+        year = st.selectbox("Academic year",
+            ["1st Year", "2nd Year", "3rd Year", "4th Year"], index=2, key="in_year")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("Continue →", key="login_submit", use_container_width=True):
+            if name.strip() and usn.strip():
+                st.session_state.user = {
+                    "name": name.strip(), "email": email.strip(), "usn": usn.strip(),
+                    "branch": branch, "semester": semester, "year": year
+                }
+                st.session_state.page = "subject"
+                st.rerun()
+            else:
+                st.warning("Please enter at least your name and USN.")
+        st.markdown('<div class="or-divider">— or —</div>', unsafe_allow_html=True)
+        if st.button("Continue as guest →", key="login_skip", type="secondary", use_container_width=True):
+            st.session_state.user = {"name": "Guest", "email": "", "usn": "", "branch": "CSE", "semester": "Sem 4", "year": "3rd Year"}
+            st.session_state.page = "subject"
+            st.rerun()
+
+
+def render_subject():
+    st.markdown('<br>', unsafe_allow_html=True)
+    name = st.session_state.user["name"] if st.session_state.user else "there"
+    st.markdown(f'<h1 class="main-title">Hi {name.split()[0]}, <span class="title-accent">what are we studying?</span></h1>', unsafe_allow_html=True)
+    st.markdown('<p class="subtitle">Pick a paper. We\'ll pull in every previous year question we have on it and rank them by how often they repeat.</p>', unsafe_allow_html=True)
+    st.markdown('<br>', unsafe_allow_html=True)
+
+    col1, col2 = st.columns([1.3, 1], gap="large")
+    with col1:
+        st.markdown('<h2>Choose paper</h2>', unsafe_allow_html=True)
+        subject_label = st.selectbox(
+            "Subject code",
+            ["BCS403 — Database Management Systems"],
+            index=0,
+            key="subject_pick"
+        )
+        st.caption("More subjects coming soon — we're adding papers every week.")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("Analyse papers →", key="subject_submit", use_container_width=True):
+            st.session_state.page = "predictor"
+            st.rerun()
+
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown('<h3 style="margin-bottom:1rem;">What you\'ll see next</h3>', unsafe_allow_html=True)
+        i1, i2 = st.columns(2)
+        with i1:
+            st.markdown("""
+            <div class="info-card">
+                <div class="info-step">1</div>
+                <h4>Repetition ranking</h4>
+                <p>Every question gets a repeat score. Study the top ones first.</p>
+            </div>
+            """, unsafe_allow_html=True)
+        with i2:
+            st.markdown("""
+            <div class="info-card">
+                <div class="info-step">2</div>
+                <h4>Year-wise trends</h4>
+                <p>See exactly which years each question appeared in.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown('<br>', unsafe_allow_html=True)
+        render_svg(student_html(), height=420)
+        st.markdown("""
+        <div class="hero-quote" style="font-size:1rem; padding:1.2rem 1.4rem; margin-top:0.5rem;">
+            "Don't read everything. Read what's likely."
+            <span class="hero-quote-author">— Every topper, ever</span>
+        </div>
+        """, unsafe_allow_html=True)
 
 
 def render_predictor():
@@ -600,7 +569,7 @@ def render_predictor():
     with col_a:
         name = st.session_state.user["name"].split()[0] if st.session_state.user else "there"
         st.markdown(f'<h2 style="margin-bottom:0;">Hey {name} 👋</h2>', unsafe_allow_html=True)
-        st.caption(f"Subject: {st.session_state.subject} • Based on previous year papers")
+        st.caption("BCS403 • Database Management Systems • Based on previous year papers")
     with col_b:
         if st.button("← Change paper", key="back", type="secondary", use_container_width=True):
             st.session_state.page = "subject"
@@ -608,11 +577,9 @@ def render_predictor():
 
     st.markdown("---")
 
-    try:
-        with open('predictions.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        st.error("⚠️ predictions.json not found. Run `python app.py` first.")
+    data, used_path = load_predictions()
+    if data is None:
+        st.error("⚠️ predictions.json not found. Run `python app.py` locally and push the file to GitHub.")
         st.stop()
 
     df = pd.DataFrame(data)
@@ -646,15 +613,18 @@ def render_predictor():
     ])
 
     with tab1:
-        render_category_header("🔥", "Mostly Predictable", "Appeared in 3 or 4 of your previous papers — study these first.", len(mostly))
+        render_category_header("🔥", "Mostly Predictable",
+            "Appeared in 3 or 4 of your previous papers — study these first.", len(mostly))
         render_question_table(mostly)
 
     with tab2:
-        render_category_header("⚡", "Moderately Repeated", "Appeared in 2 of your previous papers — worth knowing well.", len(moderate))
+        render_category_header("⚡", "Moderately Repeated",
+            "Appeared in 2 of your previous papers — worth knowing well.", len(moderate))
         render_question_table(moderate)
 
     with tab3:
-        render_category_header("📌", "Less Repeated", "Appeared in only 1 paper — lower priority but good for depth.", len(low))
+        render_category_header("📌", "Less Repeated",
+            "Appeared in only 1 paper — lower priority but good for depth.", len(low))
         render_question_table(low)
 
     with tab4:
@@ -668,6 +638,7 @@ def render_predictor():
         st.dataframe(show_df, use_container_width=True)
 
 
+# ---------- Router ----------
 page = st.session_state.page
 if page == "welcome":
     render_welcome()
