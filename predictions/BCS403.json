@@ -1,0 +1,1166 @@
+[
+  {
+    "question": "Discuss the ACID properties of a database transaction.",
+    "papers": [
+      "jan2024",
+      "jan2026",
+      "june2024"
+    ],
+    "times_appeared": 3,
+    "repetition_rate": 75.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 93.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Define database. Elaborate the component modules of DBMS and their interactions.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Draw an ER diagram for a COMPANY database with employee, department, project as strong entities and dependent as weak entity. Specify the constraints, relationships and ratios in the ER diagram.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Define the following terms with example for each using ER notations: Entity, attribute, composite attribute, multivalued attribute, participation role.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Consider the relational database schema EMP(Eno, Ename, Salary, Address, Phone, DNo), DEPT(DNo, Dname, DLoc, MgrEno), DEPENDENT(Eno, Dep_Name, Drelation, Dage). Write relational algebra queries for: i) employees who reside in Belagavi ii) employees earning salary between 30000 and 40000 iii) employees who work for the Sales department iv) employees who have at least one daughter v) department names along with names of managers.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Discuss insertion, deletion and modification anomalies. Why are they considered bad? Illustrate with examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Illustrate the following with suitable examples: i) Datatypes in SQL ii) Substring Pattern Matching in SQL.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Consider the relations Student(Snum, Sname, Branch, level, age), Class(Cname, meet_at, room, fid), Enrolled(Snum, Cname), Faculty(fid, fname, deptid). Write SQL queries (no duplicates) for: i) names of Juniors enrolled in a class taught by I. Teach ii) names of classes that meet in room R128 or have five or more students enrolled iii) for all levels except JR, the level and average age of students iv) for each faculty who has taught only in room R128, their name and total classes taught v) names of students not enrolled in any class.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Discuss the types of problems that may be encountered with transactions that run concurrently.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "What is Multiple Granularity locking? How is it implemented using intension locks? Explain.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 70.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Discuss the update operations and dealing with constraint violations with suitable examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 66.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Discuss the informal design guidelines for relation schema design.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 66.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Describe the wait-die and wound-wait protocols for deadlock prevention.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 66.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain the characteristics of NOSQL systems.",
+    "papers": [
+      "jan2026",
+      "june2025"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "8-10",
+    "marks_common": 8,
+    "weighted_score": 66.0,
+    "confidence": "Medium",
+    "avg_similarity": 0.81,
+    "module": 5
+  },
+  {
+    "question": "Describe the three-schema architecture. Why do we need mappings among schema levels?",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Illustrate the relational algebra operators with examples for select and project operation.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Discuss the characteristics of relations that make them different from ordinary tables and files.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Consider two tables T1(P,Q,R) and T2(A,B,C) with given data. Show the results of: i) T1 join T2 on T1.P=T2.A ii) T1 join T2 on T1.Q=T2.B iii) T1 join T2 on T1.P=T2.A and T1.R=T2.C.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Define 1NF, 2NF, and 3NF with examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Write the syntax for INSERT, UPDATE and DELETE statements in SQL and explain with suitable examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "In SQL, write the usage of GROUP BY and HAVING clauses with suitable examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "What is the two phase locking protocol? How does it guarantee serializability?",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "List and explain the four major categories of NOSQL systems.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Discuss the following MongoDB CRUD operations with their formats: i) Insert ii) Delete iii) Read.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 62.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain the difference between logical and physical data independence.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 58.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Perform the following on the given Student and Instructor tables: i) Student union Instructor ii) Student intersect Instructor iii) Student minus Instructor iv) Instructor minus Student.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 58.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "What do you understand by correlated Nested Queries in SQL? Explain with a suitable example.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 58.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "What are views in SQL? Explain with examples.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 58.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Briefly discuss the Neo4j data model.",
+    "papers": [
+      "jan2024",
+      "june2024"
+    ],
+    "times_appeared": 2,
+    "repetition_rate": 50.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 58.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Draw an ER-diagram for keeping track of information about an Employee database, taking into account at least five entities.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Explain with suitable example how constraints are specified in SQL during table creation.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Consider the following schema: Employee(SSN, F_name, M_name, L_name, Address, Salary, D_no), Department(Dname, Dno, MgrSSN, Mgr_S_Date). i) name and address of employees who work for Research Department ii) employees whose address is in Houston, Texas iii) employees in department 5 with salary between 30000 and 40000 iv) update Research department employees' salary by 10 percent v) delete employee with SSN 123456789.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Create a cursor for the employee table and extract values from the table. Declare the variable, open the cursor, extract values, close the cursor for relation Employee(E_id, E_Name, Age, Salary).",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Consider the following schema for a company database: Employee(FName, LName, SSn, Address, Sex, Salary, Dno, Super_SSn), Department(Dname, Dnumber, mgr_SSn, mgr_st_date), Project(Pname, Pnumber, Plocation, Dnum), WORKS_on(Essn, Pno, Hours), DEPENDENT(Essn, Dependent name, Sex, Bdate, relationship). Write SQL queries for: i) names of managers with at least one dependent (correlated nested) ii) name of each employee with a dependent sharing first name and sex iii) for each project, project number, name, and count of employees working on it iv) SSN of employees working on project 1, 2 or 3 (use 1N) v) sum, max, min, average salary of Research department employees.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Why concurrency control is needed? Demonstrate with an example.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Consider the following schedule (actions listed in scheduled order, prefixed with transaction name). S1: T1:R(X),T2:R(X),T1:W(Y),T2:W(Y),T1:R(Y),T2:R(Y). S2: T3:W(X),T1:R(X),T1:W(Y),T2:R(Z),T2:W(Z),T3:R(Z). For each schedule: i) precedence graph ii) is it conflict serializable, and equivalent serial schedules iii) is it view serializable, and equivalent serial schedules.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Explain triggers with example; write a trigger in SQL to call a procedure Inform_Supervisor whenever an employee's salary is greater than the salary of his or her direct supervisor in the COMPANY database.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Describe the two-phase locking protocol for concurrency control; provide an example to illustrate how it ensures serializability in a transaction schedule.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain binary locks and shared lock with algorithm.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain MongoDB data model, CRUD operations and distributed system characteristics.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "10",
+    "marks_common": 10,
+    "weighted_score": 35.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Discuss three schema architecture with a diagram and explain the importance of mappings between the schema levels.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Discuss the various constraints violations during insert, delete and update operations with examples for each.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Explain binary relational algebra operations with suitable examples.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Consider the following system: SAILORS(Sid, Sname, rating, age), BOATS(Bid, Bname, Bcolor), RESERVES(Sid, Bid, day). Obtain relational algebra queries for: i) name of sailors who reserved a green boat ii) color of the boat reserved by Naresh iii) name of the sailor who reserved boat no. 1 iv) Sid of sailors over age 20 who have not reserved a boat.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Define Normalization. Explain with examples 1NF, 2NF, 3NF.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Discuss the types of update anomalies in SQL with an example.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Explain the states in transaction processing with a neat diagram.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Discuss the two phase locking protocol used for concurrency control.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain Multiversion concurrency control techniques in detail.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Define database. Explain the main characteristics of the database approach.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Show the ER diagram for an EMPLOYEE database by assuming your own entities (minimum 4) attributes and relationships, mention cardinality ratios wherever appropriate.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Explain the component models of DBMS and their interaction with the help of diagram.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Design ER diagram for a university database by assuming your own entities (4). Mention primary key, constraints and relationships.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Considering the following schema: Sailors(sid, sname, rating, age), Boats(bid, bname, color), Reserves(sid, bid, day). Write relational algebra queries for: i) names of sailors who reserved a red and a green boat ii) names of sailors who reserved a red boat iii) names of sailors who reserved a red or green boat iv) names of sailors who reserved all boats.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Consider the relation schema Employee database: EMPLOYEE(Fname, Minit, Lname, SSn, Bdates, Address, Sex, Salary, Super_SSn, Dno), DEPARTMENT(Dname, Dnumber, Mgr_SSn, Mgr_start_date), PROJECT(Pname, PNumber, Plocation, Dnum), WORKS_ON(Essn, Pno, Hours), DEPENDENT(Essn, Dependent_name, sex, Bdate, Relationship). Write relational algebra queries for: i) name and address of employees who work for the Research department ii) names of employees with 2 or more dependents iii) names of employees who work on all projects controlled by department 5 iv) names of employees who have no dependents.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Identify the given Relation R(ABCDE) and its instance, check whether the given FDs hold or not. Give reasons. i) A to B ii) B to C iii) D to E iv) CD to E.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Consider relation R with function dependency EMPPROJ(SSn, Pnumber, Hours, Ename, Pname, Plocation): SSN,Pnumber to Hours; SSN to Ename; Pnumber to Pname,Plocation. Is it 2NF? Verify. If no give reason.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "8",
+    "marks_common": 8,
+    "weighted_score": 33.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Summarize the E-R to Relational Mapping algorithm with examples for each step.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "7",
+    "marks_common": 7,
+    "weighted_score": 32.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Define Database. Explain the characteristics of database.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Discuss the types of end users with suitable examples.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Illustrate the component modules of DBMS and their interaction with a neat diagram.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Discuss the importance of concurrency control and give an example for the same.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Write a note on the following with an example: i) Assertion ii) Triggers.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "What are the basic operations of CRUD in MongoDB?",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Write a note on Neo4j Interfaces and Distributed System Characteristics.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain relational model constraints.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Explain the characteristics of relations with suitable example for each.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Explain the steps to convert the basic ER model to relational Database schema.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Explain Unary relational operations with example.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "What is the need for normalization? Explain second and third normal form with examples.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Outline constraints in SQL.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "What is Multivalued dependency? Explain 4NF and 5NF with suitable example.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Outline the informal design guidelines for relational schema.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "6",
+    "marks_common": 6,
+    "weighted_score": 31.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "Discuss the various types of JOIN operation with examples.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "5",
+    "marks_common": 5,
+    "weighted_score": 30.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "List and explain different types of attributes with example.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Define the following terms: i) Primary key ii) Super key iii) Candidate key iv) Foreign key.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 2
+  },
+  {
+    "question": "Explain informal design guidelines for relational schema design.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 3
+  },
+  {
+    "question": "What is the difference between where and having clause? Give an example.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 4
+  },
+  {
+    "question": "Write a note on intension locking used to achieve granularity.",
+    "papers": [
+      "jan2026"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 5
+  },
+  {
+    "question": "Explain the types of attributes with example.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  },
+  {
+    "question": "Describe the three schema architecture.",
+    "papers": [
+      "june2025"
+    ],
+    "times_appeared": 1,
+    "repetition_rate": 25.0,
+    "marks": "4",
+    "marks_common": 4,
+    "weighted_score": 29.0,
+    "confidence": "High",
+    "avg_similarity": 1.0,
+    "module": 1
+  }
+]
