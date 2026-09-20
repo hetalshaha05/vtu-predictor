@@ -426,7 +426,8 @@ def render_subject():
     col1, col2 = st.columns([1.3, 1], gap="large")
     with col1:
         st.markdown('<h2>Choose paper</h2>', unsafe_allow_html=True)
-        subject = st.selectbox("Subject code", ["BCS403 — Design and Analysis of Algorithms"], index=0, key="subject_pick")
+        subject = st.selectbox("Subject code",
+    ["BCS403 — Database Management Systems"], index=0, key="subject_pick"), 
         st.caption("More subjects coming soon — we're adding papers every week.")
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("Analyse papers →", key="subject_submit", use_container_width=True):

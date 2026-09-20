@@ -27,10 +27,7 @@ Result: a **prioritized study plan** instead of a panic read.
 
 ## 🚀 Live Demo
 
-**Deployed on AWS EC2:** `http://YOUR_EC2_PUBLIC_IP:8501`
-
-*(Replace with your actual EC2 URL after deployment.)*
-
+**Deployeed on streamlit url https://vtu-predictor-gnqcf4eyjmfuqv4u34dmhq.streamlit.app/
 ---
 
 ## ✨ Features
@@ -191,7 +188,7 @@ Access at `http://<ec2-public-ip>:8501`.
 
 Want to add a new subject? No code changes needed.
 
-1. Create a new folder: `papers/BCS401/`
+1. Create a new folder: `papers/BCS403/`
 2. Drop your TXT files inside (one per paper)
 3. Run `python app.py`
 4. Add the subject to the dropdown in `ui.py`
