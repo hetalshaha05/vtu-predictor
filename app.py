@@ -9,7 +9,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import AgglomerativeClustering
 
 
-# ---------- Regex patterns ----------
 QUESTION_START = re.compile(
     r'^\s*(?:Q\.?\s*)?(\d{1,2})\s*[\.\)]?\s*(?:([a-z])\s*[\.\)])?\s*',
     re.IGNORECASE
@@ -28,7 +27,6 @@ def clean_question_text(text):
 
 
 def infer_module(qno, text):
-    """Infer module number: explicit 'Module N' first, else infer from question number."""
     m = re.search(r'\bmodule\s*[-:]?\s*(\d)', text, re.IGNORECASE)
     if m:
         return int(m.group(1))
@@ -107,7 +105,6 @@ def parse_txt(filepath, label):
 
     questions = [q for q in questions if q['text']]
 
-    # --- Infer module for each question ---
     for q in questions:
         q['module'] = infer_module(q['qno'], q['text'])
 
@@ -147,7 +144,6 @@ def build_predictions(paper_files):
         papers = set(all_qs[i]['paper'] for i in idxs)
         rate = len(papers) / total_papers * 100
 
-        # Marks
         marks_values = [all_qs[i]['marks'] for i in idxs if all_qs[i]['marks']]
         if marks_values:
             common_marks = max(set(marks_values), key=marks_values.count)
@@ -162,7 +158,6 @@ def build_predictions(paper_files):
 
         weighted = round(rate * (1 + marks_value / 25), 1)
 
-        # Confidence
         if len(idxs) > 1:
             cluster_sims = [sim[i][j] for i in idxs for j in idxs if i < j]
             avg_sim = sum(cluster_sims) / len(cluster_sims)
@@ -176,7 +171,6 @@ def build_predictions(paper_files):
         else:
             confidence = "Low"
 
-        # --- Module (most common in cluster) ---
         modules = [all_qs[i].get('module', 1) for i in idxs]
         common_module = max(set(modules), key=modules.count) if modules else 1
 
@@ -204,16 +198,13 @@ def main():
         print("❌ No 'papers/' folder found.")
         return
 
-    # Collect paper files from papers/ root
     paper_files = sorted(glob.glob('papers/*.txt'))
-
     if not paper_files:
-        # Try nested folders (papers/BCS403/*.txt)
         nested = glob.glob('papers/*/*.txt')
         if nested:
             paper_files = sorted(nested)
         else:
-            print("❌ No .txt files found in papers/")
+            print("❌ No .txt files in papers/")
             return
 
     print(f"📄 Found {len(paper_files)} paper(s):")
@@ -223,13 +214,11 @@ def main():
     predictions = build_predictions(paper_files)
 
     if not predictions:
-        print("⚠️  No questions parsed — check your TXT format.")
+        print("⚠️  No questions parsed.")
         return
 
     with open('predictions.json', 'w', encoding='utf-8') as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
-
-    # Also save to predictions/ for compatibility
     with open('predictions/BCS403.json', 'w', encoding='utf-8') as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
 
@@ -239,16 +228,16 @@ def main():
 
     print(f"\n📊 Total unique questions: {len(predictions)}")
     print(f"🔁 Repeated questions: {len(repeats)}")
-    print(f"🏷️  Questions with marks detected: {len(with_marks)}/{len(predictions)}")
+    print(f"🏷️  Questions with marks: {len(with_marks)}/{len(predictions)}")
     print(f"💾 Saved to predictions.json AND predictions/BCS403.json")
 
     print("\n" + "=" * 70)
-    print("🔮 TOP 10 MOST PREDICTABLE QUESTIONS (sorted by weighted score)")
+    print("🔮 TOP 10 MOST PREDICTABLE QUESTIONS")
     print("=" * 70)
     for r in predictions[:10]:
         marks_str = f"{r['marks']} marks" if r['marks'] else "marks N/A"
-        print(f"\n[Score {r['weighted_score']}] {r['repetition_rate']}% repeat | "
-              f"{marks_str} | M{r['module']} | {r['confidence']} confidence | "
+        print(f"\n[Score {r['weighted_score']}] {r['repetition_rate']}% | "
+              f"{marks_str} | M{r['module']} | {r['confidence']} | "
               f"{r['times_appeared']}/{total_papers} papers")
         print(f"  → {r['question'][:90]}...")
 
