@@ -19,7 +19,6 @@ PIPE_MARKS = re.compile(r'\|\s*(\d{1,2})\s*$')
 
 
 def clean_question_text(text):
-    """Strip leading sub-question labels, trailing marks, stray pipes."""
     text = re.sub(r'^[a-z]\s*[\|\)\.:]\s*', '', text, flags=re.IGNORECASE)
     text = re.sub(r'\|\s*\d{1,2}\s*$', '', text).strip()
     text = text.lstrip('|').strip()
@@ -28,8 +27,19 @@ def clean_question_text(text):
     return text
 
 
+def infer_module(qno, text):
+    """Infer module number: explicit 'Module N' first, else infer from question number."""
+    m = re.search(r'\bmodule\s*[-:]?\s*(\d)', text, re.IGNORECASE)
+    if m:
+        return int(m.group(1))
+    try:
+        n = int(qno)
+        return min(5, (n - 1) // 2 + 1)
+    except (ValueError, TypeError):
+        return 1
+
+
 def parse_txt(filepath, label):
-    """Parse a single TXT file into a list of question dicts."""
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = f.read().splitlines()
 
@@ -45,10 +55,8 @@ def parse_txt(filepath, label):
         if m:
             if current:
                 questions.append(current)
-
             raw_text = line[m.end():].strip()
 
-            # --- Extract marks from trailing |N or (N marks) BEFORE cleaning ---
             detected_marks = None
             pipe_match = PIPE_MARKS.search(raw_text)
             if pipe_match:
@@ -61,7 +69,6 @@ def parse_txt(filepath, label):
                     raw_text = raw_text[:paren_match.start()].strip()
 
             raw_text = clean_question_text(raw_text)
-
             current = {
                 'paper': label,
                 'qno': m.group(1),
@@ -71,7 +78,6 @@ def parse_txt(filepath, label):
             }
         else:
             if current:
-                # Marks sometimes appear alone on a line: "|6" or "(6 marks)"
                 stripped = line.strip()
                 pipe_only = re.match(r'^\|\s*(\d{1,2})\s*$', stripped)
                 marks_only = re.match(r'^\(?(\d{1,2})\s*marks?\)?$', stripped, re.IGNORECASE)
@@ -86,7 +92,6 @@ def parse_txt(filepath, label):
     if current:
         questions.append(current)
 
-    # --- Fallback extraction for any question with no marks yet ---
     for q in questions:
         if not q.get('marks'):
             mm = MARKS.search(q['text'])
@@ -98,17 +103,18 @@ def parse_txt(filepath, label):
                 if pm:
                     q['marks'] = int(pm.group(1))
                     q['text'] = q['text'][:pm.start()].strip()
-
         q['text'] = clean_question_text(q['text'])
 
-    # Drop empty questions
     questions = [q for q in questions if q['text']]
+
+    # --- Infer module for each question ---
+    for q in questions:
+        q['module'] = infer_module(q['qno'], q['text'])
 
     return questions
 
 
 def build_predictions(paper_files):
-    """Parse all papers, cluster, compute repetition + weighted scores + confidence."""
     all_qs = []
     for fp in paper_files:
         label = os.path.splitext(os.path.basename(fp))[0]
@@ -117,13 +123,11 @@ def build_predictions(paper_files):
     if not all_qs:
         return []
 
-    # Vectorize + similarity
     texts = [q['text'] for q in all_qs]
     vec = TfidfVectorizer(stop_words='english', ngram_range=(1, 2))
     X = vec.fit_transform(texts)
     sim = cosine_similarity(X)
 
-    # Cluster
     clustering = AgglomerativeClustering(
         n_clusters=None,
         distance_threshold=0.25,
@@ -143,26 +147,22 @@ def build_predictions(paper_files):
         papers = set(all_qs[i]['paper'] for i in idxs)
         rate = len(papers) / total_papers * 100
 
-        # --- Marks: common value + range (predictable marks) ---
+        # Marks
         marks_values = [all_qs[i]['marks'] for i in idxs if all_qs[i]['marks']]
         if marks_values:
             common_marks = max(set(marks_values), key=marks_values.count)
             marks_min = min(marks_values)
             marks_max = max(marks_values)
-            if marks_min != marks_max:
-                marks_display = f"{marks_min}-{marks_max}"
-            else:
-                marks_display = str(common_marks)
+            marks_display = f"{marks_min}-{marks_max}" if marks_min != marks_max else str(common_marks)
             marks_value = common_marks
         else:
             common_marks = None
             marks_display = None
-            marks_value = 5  # fallback for scoring
+            marks_value = 5
 
-        # Weighted score: repetition rate boosted by marks
         weighted = round(rate * (1 + marks_value / 25), 1)
 
-        # Confidence from cluster tightness
+        # Confidence
         if len(idxs) > 1:
             cluster_sims = [sim[i][j] for i in idxs for j in idxs if i < j]
             avg_sim = sum(cluster_sims) / len(cluster_sims)
@@ -176,6 +176,10 @@ def build_predictions(paper_files):
         else:
             confidence = "Low"
 
+        # --- Module (most common in cluster) ---
+        modules = [all_qs[i].get('module', 1) for i in idxs]
+        common_module = max(set(modules), key=modules.count) if modules else 1
+
         results.append({
             'question': all_qs[idxs[0]]['text'],
             'papers': sorted(papers),
@@ -185,7 +189,8 @@ def build_predictions(paper_files):
             'marks_common': common_marks,
             'weighted_score': weighted,
             'confidence': confidence,
-            'avg_similarity': round(avg_sim, 2)
+            'avg_similarity': round(avg_sim, 2),
+            'module': common_module
         })
 
     results.sort(key=lambda x: (x['weighted_score'], x['times_appeared']), reverse=True)
@@ -193,14 +198,23 @@ def build_predictions(paper_files):
 
 
 def main():
+    os.makedirs('predictions', exist_ok=True)
+
     if not os.path.isdir('papers'):
         print("❌ No 'papers/' folder found.")
         return
 
+    # Collect paper files from papers/ root
     paper_files = sorted(glob.glob('papers/*.txt'))
+
     if not paper_files:
-        print("❌ No .txt files in papers/")
-        return
+        # Try nested folders (papers/BCS403/*.txt)
+        nested = glob.glob('papers/*/*.txt')
+        if nested:
+            paper_files = sorted(nested)
+        else:
+            print("❌ No .txt files found in papers/")
+            return
 
     print(f"📄 Found {len(paper_files)} paper(s):")
     for fp in paper_files:
@@ -215,6 +229,10 @@ def main():
     with open('predictions.json', 'w', encoding='utf-8') as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
 
+    # Also save to predictions/ for compatibility
+    with open('predictions/BCS403.json', 'w', encoding='utf-8') as f:
+        json.dump(predictions, f, indent=2, ensure_ascii=False)
+
     total_papers = len(paper_files)
     repeats = [r for r in predictions if r['times_appeared'] >= 2]
     with_marks = [r for r in predictions if r['marks']]
@@ -222,7 +240,7 @@ def main():
     print(f"\n📊 Total unique questions: {len(predictions)}")
     print(f"🔁 Repeated questions: {len(repeats)}")
     print(f"🏷️  Questions with marks detected: {len(with_marks)}/{len(predictions)}")
-    print(f"💾 Saved to predictions.json")
+    print(f"💾 Saved to predictions.json AND predictions/BCS403.json")
 
     print("\n" + "=" * 70)
     print("🔮 TOP 10 MOST PREDICTABLE QUESTIONS (sorted by weighted score)")
@@ -230,7 +248,7 @@ def main():
     for r in predictions[:10]:
         marks_str = f"{r['marks']} marks" if r['marks'] else "marks N/A"
         print(f"\n[Score {r['weighted_score']}] {r['repetition_rate']}% repeat | "
-              f"{marks_str} | {r['confidence']} confidence | "
+              f"{marks_str} | M{r['module']} | {r['confidence']} confidence | "
               f"{r['times_appeared']}/{total_papers} papers")
         print(f"  → {r['question'][:90]}...")
 
